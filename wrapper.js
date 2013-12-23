@@ -20,6 +20,7 @@ exports.init = function(root, config) {
       var output = null;
       try {
         output = coffee.compile(input, {bare: true, sourceMap: true})
+        console.log(output.v3sourceMap);
         cb( output.js, output.v3sourceMap );
       } catch (e) {
         var message = "! Error compiling " + path + " into CoffeeScript";
