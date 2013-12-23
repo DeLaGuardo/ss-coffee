@@ -17,8 +17,10 @@ exports.init = function(root, config) {
 
     compile: function(path, options, cb) {
       var input = fs.readFileSync(path, 'utf8');
+      var output = null;
       try {
-        cb( coffee.compile(input, {bare: true, sourceMap: true}) );
+        output = coffee.compile(input, {bare: true, sourceMap: true})
+        cb( output.js, output.v3sourceMap );
       } catch (e) {
         var message = "! Error compiling " + path + " into CoffeeScript";
         console.log(String.prototype.hasOwnProperty('red') && message.red || message);
