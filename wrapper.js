@@ -15,10 +15,10 @@ exports.init = function(root, config) {
 
     contentType: 'text/javascript; charset=utf-8',
 
-    compile: function(path, options, cb) {    
+    compile: function(path, options, cb) {
       var input = fs.readFileSync(path, 'utf8');
       try {
-        cb( coffee.compile(input, {bare: true}) );
+        cb( coffee.compile(input, {bare: true, sourceMap: true}) );
       } catch (e) {
         var message = "! Error compiling " + path + " into CoffeeScript";
         console.log(String.prototype.hasOwnProperty('red') && message.red || message);
