@@ -12,7 +12,7 @@
     "node": ">= 0.6.0"
   },
   "dependencies": {
-    "coffee-script": "1.6.x"
+    "coffee-script": "^1.7.x"
   },
   "devDependencies": {}
 }
